@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Learning platform</title>
+	<h:outputStylesheet name="style.css" library="css" />
+</h:head>
+
+
+
+<h:body>
+
+	<p:panel class="space" >
+		<ui:insert name="header">
+			<center>
+			<div id="header" class="box bottom-space">
+				<h1 style="color:White">Learning platform</h1>
+			</div>
+			</center>
+		</ui:insert>
+	</p:panel>
+	
+	
+	<div class="space_two">
+	<div class="ui-left" >
+			<ui:insert name="content"></ui:insert>
+	</div>
+	
+	<div class="ui-right" >
+			<center>
+
+	<p:panelGrid columns="2"  layout="grid" styleClass="showcase-text-align-center">
+    <f:facet name="header">
+        <p:graphicImage name="img/ksiazka.png" height="190" width="150"/>
+    </f:facet>
+     
+    <h:outputText value="Imię:" />
+    <h:outputText value="Kobe Bryant" />
+     
+    <h:outputText value="Poziom:" />
+    <h:outputText value="123" />
+     
+    <h:outputText value="punkty:" />
+    <h:outputText value="14141" />
+     
+  
+	</p:panelGrid>
+	
+	
+
+
+</center>
+	</div>
+	</div>
+	
+	
+	
+	<ui:insert name="footer">
+		<div class="footer">
+			<center>
+				<h4 style="color:White">© Mateusz Zatoń</h4>
+				<h4 style="color:White"><a href="https://github.com/EloBalans">GIT</a></h4>
+			</center>
+		</div>
+	</ui:insert>
+	
+
+</h:body>
+
+</html>

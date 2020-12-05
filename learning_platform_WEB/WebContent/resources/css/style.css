@@ -1,0 +1,60 @@
+body{
+	font-family: 'Century Gothic',helvetica,verdana,arial;
+	background: url("../img/calc_image.jpg.jsf?ln=template") no-repeat center center fixed;
+	background-size: cover;
+	margin:0;
+}
+
+.bottom-space{
+	margin-bottom: 1em;
+}
+
+.top-space{
+	margin-top: 1em;
+}
+
+.footer{
+	background-color: #202020;
+	position: absolute;
+  	bottom: 0;
+  	height: 100px;
+  	width: 100%;
+  	text-align:center;
+}
+
+.ui-left{
+	float: left;
+	width: 65%;
+	background-color: #202020;
+	height: 400px;
+	
+}
+
+.ui-right{
+	float: right;
+	width: 33%;
+	background-color: #202020;
+	height: 400px;
+}
+
+.space{
+	margin-top:20px;
+	margin-left:25%;
+	margin-right:25%;
+}
+.space_two{
+	margin-top:50px;
+	margin-left:25%;
+	margin-right:25%;
+	width: 50%;
+	height: 400px;
+}
+
+.clear {
+clear: both;
+}
+
+#page_wrapper{
+	margin: 1em;
+	min-width: 700px;
+}
