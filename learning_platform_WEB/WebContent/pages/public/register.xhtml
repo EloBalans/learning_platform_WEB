@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/main-template.xhtml">
+
+	<ui:define name="content">
+		<p:panel>
+			<center>
+				<h1 style="color:White">Register</h1>
+			</center>
+		</p:panel>
+		
+		<p:panel>
+			<center>
+			<h:form>
+                <p:messages />
+                <h:panelGrid columns="1">
+                
+                    <h:outputText value="Firstname:" />
+                    <p:inputText value="" required="true" label="Firstname"/>
+                    <h:outputText value="Lastname:" />
+                    <p:inputText value="" required="true" label="Lastname"/>
+                    <h:outputText value="Password: " />
+                    <p:inputText value="" /> 
+                    <h:outputText value="Email: " />
+                    <p:inputText value="" /> 
+                   
+                </h:panelGrid>
+                 	<center>
+                 		<p:commandButton value="Submit"/>
+                 	</center>
+                 </h:form>
+			</center>
+		</p:panel>
+	</ui:define>
+	
+</ui:composition>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/second-template.xhtml">
+
+	<ui:define name="content">
+<p:panel>
+<center>
+<h1 style="color:White">Sekcja</h1>	
+  
+</center>
+</p:panel>
+    <p:accordionPanel>
+        <p:tab title="Dodawanie">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                <h:outputText
+                    value="Proste zadania jednokrotnego wyboru z dodawania"/>
+                   
+            </h:panelGrid>
+            <center>
+            <p:commandButton value="Wybierz"/>
+            </center>
+        </p:tab>
+        <p:tab title="Odejmowanie">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                <h:outputText value="Proste zadania jednokrotnego wyboru z odejmowania"/>
+            </h:panelGrid>
+             <center>
+            <p:commandButton value="Wybierz"/>
+            </center>
+        </p:tab>
+        
+    </p:accordionPanel>
+	</ui:define>
+	
+
+	
+</ui:composition>
+</html>
