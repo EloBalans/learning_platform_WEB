@@ -21,20 +21,45 @@
                 <p:messages />
                 <h:panelGrid columns="1">
                 
-                    <h:outputText value="Firstname:" />
-                    <p:inputText value="" required="true" label="Firstname"/>
-                    <h:outputText value="Lastname:" />
-                    <p:inputText value="" required="true" label="Lastname"/>
+                    <h:outputText value="Username:" />
+                    <p:inputText id="username" value="#{registerBB.user.username}" required="true" requiredMessage="Username is required"/>
+                   	<div class="mess">
+		  				<p:messages for="username"/>
+		  			</div>
+		  			
+		  			<h:outputText value="Email: " />
+                    <p:inputText id="email" value="#{registerBB.user.email}" required="true" requiredMessage="Email is required" /> 
+                   	<div class="mess">
+		  				<p:messages for="email"/>
+		  			</div>
+                   
                     <h:outputText value="Password: " />
-                    <p:inputText value="" /> 
-                    <h:outputText value="Email: " />
-                    <p:inputText value="" /> 
+                    <p:password id="password" value="#{registerBB.user.password}" required="true" requiredMessage="Password is required" /> 
+                    <div class="mess">
+		  				<p:messages for="login"/>
+		  			</div>
+                    
                    
                 </h:panelGrid>
                  	<center>
-                 		<p:commandButton value="Submit"/>
+                 		<p:commandButton value="Register" action="#{registerBB.saveData()}" update="@form" />
+                 		<br/>
+                 		<br/>
+                 		<br/>
                  	</center>
                  </h:form>
+                 
+                 Masz konto? 
+                 <p:link outcome="login">
+                 	<u>
+    	    		<h:outputText value="Zaloguj sie" />
+    	    		</u>
+   				 </p:link>
+                  <br/>
+                  <br/>
+                
+                  <br/>
+                
 			</center>
 		</p:panel>
 	</ui:define>

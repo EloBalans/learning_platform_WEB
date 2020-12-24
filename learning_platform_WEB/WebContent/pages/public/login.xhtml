@@ -22,25 +22,36 @@
                 <h:panelGrid columns="1">
                 
                     <h:outputText value="Email: " />
-                    <p:inputText value="" /> 
+                    <p:inputText  id="login" value="#{loginBB.login}" required="true" requiredMessage="Login is required" /> 
+                    <div class="mess">
+		  				<p:messages for="login"/>
+		  			</div>
+		  		
                     <h:outputText value="Password: " />
-                    <p:inputText value="" /> 
+                    <p:inputText id="password" value="#{loginBB.password}" required="true" requiredMessage="Password is required" /> 
+                    <div class="mess">
+		  			<p:messages for="password"/>
+		  		</div>
+                    
                     <br/>
                 </h:panelGrid>
                  	<center>
-                 		<p:commandButton value="Submit"/>
+                 		<p:commandButton value="Login" action="#{loginBB.doLogin()}" update="@form" />
                  		<br/>
                  		<br/>
                  		<br/>
                  	</center>
                  </h:form>
                  
-                  Nie masz konta? Zarejestruj się.
+                  Nie masz konta? 
+                 <p:link outcome="register">
+                 	<u>
+    	    		<h:outputText value="Zarejestruj się" />
+    	    		</u>
+   				 </p:link>
                   <br/>
                   <br/>
-                  <center>
-                 <p:commandButton value="Register" action="register?facesRedirect=true"/>
-                 </center>
+                 
                   <br/>
                 
 			</center>
