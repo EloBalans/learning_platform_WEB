@@ -1,3 +1,4 @@
+
 package learning_platform_WEB;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ import jsf.learning_platform.entities.User;
 public class registerBB implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private static final String PAGE_SECTION_LIST = "/user/sectionList?faces-redirect=true";
+	private static final String PAGE_SECTION_LIST = "/pages/user/sectionList.xhtml?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private User user = new User();

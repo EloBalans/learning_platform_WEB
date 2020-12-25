@@ -20,8 +20,8 @@ import jsf.learning_platform.entities.User;
 @RequestScoped
 public class loginBB {
 
-	private static final String PAGE_MAIN = "/user/sectionList?faces-redirect=true";
-	private static final String PAGE_LOGIN = "/public/login";
+	private static final String PAGE_MAIN = "/pages/user/sectionList?faces-redirect=true";
+	private static final String PAGE_LOGIN = "/pages/user/login?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private String login;
