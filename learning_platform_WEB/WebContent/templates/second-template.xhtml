@@ -41,16 +41,25 @@
     </f:facet>
      
     <h:outputText value="Imię:" />
-    <h:outputText value="Kobe Bryant" />
+    <h:outputText value="#{remoteClient.details.username}" />
      
     <h:outputText value="Poziom:" />
-    <h:outputText value="123" />
+    <h:outputText value="#{remoteClient.details.lvl}" />
      
     <h:outputText value="punkty:" />
-    <h:outputText value="14141" />
+    <h:outputText value="#{remoteClient.details.experience}" />
      
+   
   
 	</p:panelGrid>
+	<br/>
+	<br/>
+	<center>
+		<p:commandButton value="Logout" action="#{loginBB.doLogout()}"/>
+		
+		<p:button outcome="/pages/admin/addSection"  value="Dodaj sekcję" >
+   		</p:button>
+	</center>
 	
 	
 

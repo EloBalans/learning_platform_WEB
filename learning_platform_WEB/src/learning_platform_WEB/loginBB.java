@@ -21,18 +21,18 @@ import jsf.learning_platform.entities.User;
 public class loginBB {
 
 	private static final String PAGE_MAIN = "/pages/user/sectionList?faces-redirect=true";
-	private static final String PAGE_LOGIN = "/pages/user/login?faces-redirect=true";
+	private static final String PAGE_LOGIN = "/pages/public/login?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
-	private String login;
+	private String email;
 	private String password;
 
-	public String getLogin() {
-		return login;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -49,7 +49,7 @@ public class loginBB {
 	public String doLogin() {
 		FacesContext ctx = FacesContext.getCurrentInstance();
 
-		List<User> users = userDAO.getUser(login, password);
+		List<User> users = userDAO.getUser(email, password);
 
 		if (users.isEmpty()) {
 			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,

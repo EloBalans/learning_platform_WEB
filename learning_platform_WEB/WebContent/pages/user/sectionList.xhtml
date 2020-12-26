@@ -14,9 +14,12 @@
 <h1 style="color:White">Sekcja</h1>	
   
 </center>
+
 </p:panel>
+
+<p:dataTable value="#{sectionBB.list}" var="s">
     <p:accordionPanel>
-        <p:tab title="Dodawanie">
+        <p:tab title="#{s.name}">
             <h:panelGrid columns="2" cellpadding="10">
                 <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
                 <h:outputText
@@ -27,17 +30,10 @@
             <p:commandButton value="Wybierz"/>
             </center>
         </p:tab>
-        <p:tab title="Odejmowanie">
-            <h:panelGrid columns="2" cellpadding="10">
-                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
-                <h:outputText value="Proste zadania jednokrotnego wyboru z odejmowania"/>
-            </h:panelGrid>
-             <center>
-            <p:commandButton value="Wybierz"/>
-            </center>
-        </p:tab>
+      
         
     </p:accordionPanel>
+    </p:dataTable>
 	</ui:define>
 	
 
