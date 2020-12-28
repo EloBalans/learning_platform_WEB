@@ -8,41 +8,35 @@
 
 <ui:composition template="/templates/second-template.xhtml">
 
-	<ui:define name="content">
-<p:panel>
-<center>
-<h1 style="color:White">Sekcja</h1>	
-  
-</center>
-</p:panel>
-<center>
-<h:form>
-               
-                <h:panelGrid columns="1">
-                
-                    <h:outputText value="Nazwa:" />
-                    <p:inputText id="name" value="#{sectionEitBB.section.namme}" required="true" requiredMessage="name is required"/>
-                   	<div class="mess">
-		  				<p:messages for="name"/>
-		  			</div>
-		  			
-		  			<h:outputText value="Opis: " />
-                    <p:inputText id="description" value="" required="true" requiredMessage="Description is required" /> 
-                   	<div class="mess">
-		  				<p:messages for="description"/>
-		  			</div>
-                   
-                   
-                    
-                 		<p:commandButton value="Dodaj" action="#{registerBB.saveData()}" update="@form" />
-                 		
-                 	
-                   
-                </h:panelGrid>
-                 	
+<ui:define name="content">
+	<p:panel>
+		<center>
+			<h1 style="color:White">Sekcja</h1>	
+		</center>
+	</p:panel>
 
-                 </h:form>
-                 </center>
+	<center>
+		<h:form>
+        	<p:panelGrid columns="2" >
+                
+             	<h:outputText value="Nazwa:" />
+                <p:inputText id="name" value="#{sectionEditBB.section.name}" required="true" requiredMessage="name is required"/>
+                   	
+		  		<h:outputText value="Opis: " />
+                <p:inputText id="description" value="#{sectionEditBB.section.description}" required="true" requiredMessage="Description is required" /> 
+                   
+           	</p:panelGrid>
+                
+            <h:panelGrid columns="2">
+                
+            	<p:commandButton value="Dodaj" action="#{sectionEditBB.saveData()}" update="@form" />
+                <p:button value="Anuluj" outcome="/pages/user/sectionList" />
+                
+            </h:panelGrid>
+            
+                 	
+         </h:form>
+      </center>
    
 </ui:define>
 	

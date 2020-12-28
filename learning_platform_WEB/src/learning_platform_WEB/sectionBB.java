@@ -47,8 +47,12 @@ public class sectionBB implements Serializable {
 		return name;
 	}
 	
-	public void setSurname(String name) {
+	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public List<Section> getFullList(){
+		return sectionDAO.getFullList();
 	}
 
 	

@@ -17,23 +17,21 @@
 
 </p:panel>
 
-<p:dataTable value="#{sectionBB.list}" var="s">
-    <p:accordionPanel>
+
+    
+    <p:accordionPanel value="#{sectionBB.getList()}" var="s">
         <p:tab title="#{s.name}">
             <h:panelGrid columns="2" cellpadding="10">
-                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
-                <h:outputText
-                    value="Proste zadania jednokrotnego wyboru z dodawania"/>
-                   
+                <h:outputText value="#{s.description}"/>
+                    <center>
+                    <p:commandButton value="Wybierz"/>
+                    </center>
             </h:panelGrid>
-            <center>
-            <p:commandButton value="Wybierz"/>
-            </center>
         </p:tab>
-      
-        
+        	
     </p:accordionPanel>
-    </p:dataTable>
+ 
+    
 	</ui:define>
 	
 

@@ -33,7 +33,6 @@ public class sectionEditBB implements Serializable {
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private Section section = new Section();
-	private Section loaded = null;
 
 	@Inject
 	FacesContext context;
@@ -47,9 +46,6 @@ public class sectionEditBB implements Serializable {
 	
 	public String saveData() {
 		
-		if (loaded == null) {
-			return PAGE_STAY_AT_THE_SAME;
-		}
 
 		try {
 				sectionDAO.create(section);

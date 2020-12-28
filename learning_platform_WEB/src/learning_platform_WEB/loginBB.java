@@ -70,8 +70,8 @@ public class loginBB {
 		return PAGE_MAIN;
 	}
 	
-	public String doLogout(){
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+		public String doLogout(){
+			HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
 				.getExternalContext().getSession(true);
 		
 		session.invalidate();
