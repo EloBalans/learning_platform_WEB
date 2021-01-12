@@ -11,7 +11,7 @@
 	<ui:define name="content">
 <p:panel>
 <center>
-<h1 style="color:White">Sekcja</h1>	
+<h1 style="color:White">Quiz</h1>	
   
 </center>
 
@@ -19,8 +19,8 @@
 
 
     <h:form>
-    <p:accordionPanel value="#{sectionBB.getList()}" var="s">
-        <p:tab title="#{s.name}" >
+    <p:accordionPanel value="#{mathBB.getList()}" var="m">
+        <p:tab title="#{m.name}" >
         
             <h:panelGrid columns="2" cellpadding="10">
                 <h:outputText value="#{s.description}"/>
@@ -29,13 +29,8 @@
                     
                     </center>
                     <center>
-                    <p:commandButton value="Usuń"
-					action="#{sectionBB.deleteSection(s)}" update="@form" />
+                   
 					</center>
-					
-					<p:button outcome="/pages/admin/addMath" value="Dodaj pytanie">
-					<f:param name="s" value="#{s.sectionId}" />
-					</p:button>
             </h:panelGrid>
         </p:tab>
         	

@@ -21,7 +21,8 @@
 /javax.faces.resource : PUBLIC;
 /pages/public : PUBLIC;
 /pages : PUBLIC;
-/pages/user : use, admin;
+/pages/user : user, admin;
+/pages/user/sectionList.xhtml  : user, admin;
 /pages/admin : admin;
 			</param-value>
 		</init-param>

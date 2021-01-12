@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/second-template.xhtml">
+
+<ui:define name="content">
+	<p:panel>
+		<center>
+			<h1 style="color:White">Dodanie quizu</h1>	
+		</center>
+	</p:panel>
+
+	<center>
+		<h:form>
+        	<p:panelGrid columns="2" >
+                
+             	<h:outputText value="Pytanie:" />
+                <p:inputText id="question" value="" required="true" requiredMessage="is required"/>
+                   	
+		  		<h:outputText value="odpowiedz A: " />
+                <p:inputText id="questionA" value="" required="true" requiredMessage="is required" /> 
+                
+                <h:outputText value="odpowiedz B: " />
+                <p:inputText id="questioB" value="" required="true" requiredMessage="is required" /> 
+                
+                <h:outputText value="odpowiedz C: " />
+                <p:inputText id="questionC" value="" required="true" requiredMessage="is required" /> 
+                
+                <h:outputText value="odpowiedz D: " />
+                <p:inputText id="questionD" value="" required="true" requiredMessage="is required" /> 
+                
+                <h:outputText value="odpowiedz prawidłowa: " />
+                <p:inputText id="questionTrue" value="" required="true" requiredMessage="is required" /> 
+                   
+           	</p:panelGrid>
+                
+            <h:panelGrid columns="2">
+                
+            	<p:commandButton value="Dodaj" action="#{sectionEditBB.saveData()}" update="@form" />
+            	
+                <p:button value="Anuluj" outcome="/pages/user/sectionList" />
+                
+            </h:panelGrid>
+            
+                 	
+         </h:form>
+         
+         
+      </center>
+   
+</ui:define>
+	
+
+	
+</ui:composition>
+</html>
