@@ -8,6 +8,12 @@
 
 <ui:composition template="/templates/second-template.xhtml">
 
+<f:metadata>
+	<f:viewParam name="section" value="#{mathBB.section.sectionId}"
+		converterMessage="Error"/>
+</f:metadata>
+
+
 <ui:define name="content">
 	<p:panel>
 		<center>
@@ -20,28 +26,40 @@
         	<p:panelGrid columns="2" >
                 
              	<h:outputText value="Pytanie:" />
-                <p:inputText id="question" value="" required="true" requiredMessage="is required"/>
+                <p:inputText id="question" value="#{mathBB.math.content}" required="true" requiredMessage="is required"/>
                    	
 		  		<h:outputText value="odpowiedz A: " />
-                <p:inputText id="questionA" value="" required="true" requiredMessage="is required" /> 
+                <p:inputText id="questionA" value="#{mathBB.math.answer_A}" required="true" requiredMessage="is required" /> 
                 
                 <h:outputText value="odpowiedz B: " />
-                <p:inputText id="questioB" value="" required="true" requiredMessage="is required" /> 
+                <p:inputText id="questioB" value="#{mathBB.math.answer_B}" required="true" requiredMessage="is required" /> 
                 
                 <h:outputText value="odpowiedz C: " />
-                <p:inputText id="questionC" value="" required="true" requiredMessage="is required" /> 
+                <p:inputText id="questionC" value="#{mathBB.math.answer_C}" required="true" requiredMessage="is required" /> 
                 
                 <h:outputText value="odpowiedz D: " />
-                <p:inputText id="questionD" value="" required="true" requiredMessage="is required" /> 
+                <p:inputText id="questionD" value="#{mathBB.math.answer_D}" required="true" requiredMessage="is required" /> 
                 
-                <h:outputText value="odpowiedz prawidłowa: " />
-                <p:inputText id="questionTrue" value="" required="true" requiredMessage="is required" /> 
+                 
+                <h:outputText value="poprawna odpowiedz: " />
+                <p:inputText id="correctAnswer" value="#{mathBB.math.correctAnswer}" required="true" requiredMessage="is required" />
+                	
+                <h:outputText value="doświadczenie: " />
+                <p:inputText id="experience" value="#{mathBB.math.experience}" required="true" requiredMessage="is required" />
+                
+                <h:outputText value="Czas w sekundach: " />
+                <p:inputText id="time" value="#{mathBB.math.time}" required="true" requiredMessage="is required" /> 
+                
+                
+                
+                	
+                
                    
            	</p:panelGrid>
                 
             <h:panelGrid columns="2">
                 
-            	<p:commandButton value="Dodaj" action="#{sectionEditBB.saveData()}" update="@form" />
+            	<p:commandButton value="Dodaj" action="#{mathBB.saveData()}" update="@form" />
             	
                 <p:button value="Anuluj" outcome="/pages/user/sectionList" />
                 

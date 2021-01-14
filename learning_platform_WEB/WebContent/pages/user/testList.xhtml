@@ -20,18 +20,14 @@
 
     <h:form>
     <p:accordionPanel value="#{mathBB.getList()}" var="m">
-        <p:tab title="#{m.name}" >
-        
+         <h:outputText value="#{m.content}"/>
             <h:panelGrid columns="2" cellpadding="10">
-                <h:outputText value="#{s.description}"/>
-                    <center>
-                    <p:commandButton value="Wybierz"/>
+                <h:outputText value="#{m.answer_A}"/>
+                <h:outputText value="#{m.answer_B}"/>
+                <h:outputText value="#{m.answer_C}"/>
+                <h:outputText value="#{m.answer_D}"/>
                     
-                    </center>
-                    <center>
-                   
-					</center>
-            </h:panelGrid>
+            </h:panelGrid>	
         </p:tab>
         	
     </p:accordionPanel>

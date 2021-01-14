@@ -34,6 +34,7 @@ public class sectionEditBB implements Serializable {
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private Section section = new Section();
+	private Section loaded = null;
 
 	@Inject
 	FacesContext context;
@@ -43,6 +44,24 @@ public class sectionEditBB implements Serializable {
 	
 	public Section getSection() {
 		return section;
+	}
+	
+	public void onLoad() throws IOException {
+		if (!context.isPostback()) {
+			if (!context.isValidationFailed() && section.getSectionId() != null) {
+				loaded = sectionDAO.find(section.getSectionId());
+			}
+			if (loaded != null) {
+				section = loaded;
+			} else {
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Błędne użycie systemu", null));
+				// if (!context.isPostback()) { // possible redirect
+				// context.getExternalContext().redirect("personList.xhtml");
+				// context.responseComplete();
+				// }
+			}
+		}
+
 	}
 	
 	public String saveData() {
