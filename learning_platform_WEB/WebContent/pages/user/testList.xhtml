@@ -8,6 +8,11 @@
 
 <ui:composition template="/templates/second-template.xhtml">
 
+<f:metadata>
+	<f:viewParam name="s" value="#{mathBB.section.sectionId}"
+		converterMessage="Error"/>
+</f:metadata>
+
 	<ui:define name="content">
 <p:panel>
 <center>
@@ -20,6 +25,7 @@
 
     <h:form>
     <p:accordionPanel value="#{mathBB.getList()}" var="m">
+       <p:tab title="#{m.content}" >
          <h:outputText value="#{m.content}"/>
             <h:panelGrid columns="2" cellpadding="10">
                 <h:outputText value="#{m.answer_A}"/>
@@ -28,8 +34,8 @@
                 <h:outputText value="#{m.answer_D}"/>
                     
             </h:panelGrid>	
-        </p:tab>
-        	
+       
+         </p:tab>	
     </p:accordionPanel>
  	</h:form>
     

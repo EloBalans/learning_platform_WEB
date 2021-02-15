@@ -30,6 +30,7 @@ public class sectionEditBB implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private static final String PAGE_SECTION_LIST = "/pages/user/sectionList.xhtml?faces-redirect=true";
+	private static final String PAGE_QUIZZ_LIST = "/pages/user/testList.xhtml?faces-redirect=true";
 	private static final String PAGE_ADDMATH = "/pages/admin/addMath.xhtml?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
@@ -62,6 +63,10 @@ public class sectionEditBB implements Serializable {
 			}
 		}
 
+	}
+	public String toQuiz() {
+		return PAGE_QUIZZ_LIST;
+		
 	}
 	
 	public String saveData() {

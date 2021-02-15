@@ -62,6 +62,20 @@ public class mathBB implements Serializable {
 		return mathDAO.getFullList();
 	}
 	
+	public List<Math> getList(){
+		List<Math> list = null;
+		
+		
+		
+		math =  mathDAO.find(section);
+		
+		
+		//2. Get list
+		list = mathDAO.getList(math);
+		
+		return list;
+	}
+	
 	public void onLoad() throws IOException {
 		if (!context.isPostback()) {
 			if (!context.isValidationFailed() && section.getSectionId() != null) {
@@ -81,6 +95,8 @@ public class mathBB implements Serializable {
 	}
 	
 	public String saveData() {
+		
+		section = sectionDAO.find(section.getSectionId());
 		math.setSection(section);
 		
 		try {

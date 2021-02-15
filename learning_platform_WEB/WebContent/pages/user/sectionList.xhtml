@@ -19,27 +19,44 @@
 
 
     <h:form>
-    <p:accordionPanel value="#{sectionBB.getList()}" var="s">
-        <p:tab title="#{s.name}" >
-        
-            <h:panelGrid columns="2" cellpadding="10">
-                <h:outputText value="#{s.description}"/>
-                    <center>
-                    <p:commandButton value="Wybierz"/>
-                    
-                    </center>
-                    <center>
+   
+    
+     <p:dataTable var="section" value="#{sectionBB.getList()}" paginator="true" rows="5"
+                     paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                     rowsPerPageTemplate="5,10">
+            
+            <div class="p-col-12 p-md-3">
+            <p:column headerText="">
+                <h:outputText id="name" value="#{section.name}"/>
+                <p:tooltip for="name" value="#{section.description}" position="bottom"/>
+            </p:column>
+             </div>
+            <p:column headerText="" >
+            <center>
+            <p:button outcome="/pages/user/testList" value="Wybierz">
+					<f:param name="s" value="#{s.sectionId}" />
+					</p:button>
+					</center>
+                
+            </p:column>
+           
+            <p:column>
+             <center>
                     <p:commandButton value="Usuń"
 					action="#{sectionBB.deleteSection(s)}" update="@form" />
 					</center>
-					
-					<p:button outcome="/pages/admin/addMath" value="Dodaj pytanie">
+            </p:column>
+            
+            <p:column>
+            <center>
+            <p:button outcome="/pages/admin/addMath" value="Dodaj pytanie">
 					<f:param name="s" value="#{s.sectionId}" />
 					</p:button>
-            </h:panelGrid>
-        </p:tab>
-        	
-    </p:accordionPanel>
+					</center>
+            </p:column>
+            
+        </p:dataTable>
+    
  	</h:form>
     
 	</ui:define>
