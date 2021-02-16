@@ -9,17 +9,17 @@
 <ui:composition template="/templates/second-template.xhtml">
 
 <f:metadata>
-	<f:viewParam name="s" value="#{mathBB.section.sectionId}"
+	<f:viewParam name="m" value="#{mathBB.math.mathId}"
 		converterMessage="Error"/>
 </f:metadata>
 
 	<ui:define name="content">
 <p:panel>
 <center>
-<h1 style="color:White">Quiz list</h1>	
+<h1 style="color:White">Quiz</h1>	
   
 </center>
- <p:button outcome="/pages/user/sectionList" value="Cofnij">
+ <p:button outcome="/pages/user/testList" value="Cofnij">
 					
 					</p:button>
 
@@ -31,9 +31,7 @@
     <h:form>
     
     
-    <p:dataTable var="m" value="#{mathBB.getFullList()}" paginator="true" rows="5"
-                     paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                     rowsPerPageTemplate="5,10">
+    <p:dataTable var="m" value="#{mathBB.getQuiz()}" >
             
             
             <p:column headerText="" >
@@ -46,7 +44,7 @@
                 
             <p:column headerText="" >
             <center>
-            <p:button outcome="/pages/user/quiz" value="Wybierz">
+            <p:button outcome="/pages/user/testList" value="Wybierz">
 					<f:param name="m" value="#{m.mathId}" />
 					</p:button>
 					</center>

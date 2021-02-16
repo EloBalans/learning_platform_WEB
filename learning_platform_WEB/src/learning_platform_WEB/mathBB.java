@@ -29,13 +29,17 @@ import jsf.learning_platform.entities.Answer;
 @FacesConfig
 public class mathBB implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private String mathId;
 
 	private static final String PAGE_SECTION_LIST = "/pages/user/sectionList.xhtml?faces-redirect=true";
 	private static final String PAGE_STAY_AT_THE_SAME = "/pages/admin/addMath.xhtml?faces-redirect=true";
+	private static final String PAGE_STAY = null;
+	private static final String PAGE_QUIZ = "/pages/user/quiz.xhtml?faces-redirect=true";
+	
 
 	private Section section = new Section();
 	private Math math = new Math();
-	private Section loaded = null;
+	private Math loaded = null;
 
 	@Inject
 	FacesContext context;
@@ -48,6 +52,13 @@ public class mathBB implements Serializable {
 	@EJB
 	SectionDAO sectionDAO;
 	
+	public String getMathId() {
+		return mathId;
+	}
+	
+	public void setMathId(String mathId) {
+		this.mathId = mathId;
+	}
 	
 	public Section getSection() {
 		return section;
@@ -58,31 +69,37 @@ public class mathBB implements Serializable {
 	}
 	
 	
+	
 	public List<Math> getFullList(){
 		return mathDAO.getFullList();
 	}
 	
-	public List<Math> getList(){
+	public List<Math> getQuiz(){
 		List<Math> list = null;
+		Map<String,Object> searchParams = new HashMap<String, Object>();
 		
-		
-		
-		math =  mathDAO.find(section);
-		
+		if (mathId != null && mathId.length() > 0){
+			searchParams.put("mathId", mathId);
+		}
 		
 		//2. Get list
-		list = mathDAO.getList(math);
+		list = mathDAO.getList(searchParams);
 		
 		return list;
+		
+	}
+	
+	public String toSection() {
+		return PAGE_SECTION_LIST;
 	}
 	
 	public void onLoad() throws IOException {
 		if (!context.isPostback()) {
-			if (!context.isValidationFailed() && section.getSectionId() != null) {
-				loaded = sectionDAO.find(section.getSectionId());
+			if (!context.isValidationFailed() && math.getMathId() != null) {
+				loaded = mathDAO.find(math.getMathId());
 			}
 			if (loaded != null) {
-				section = loaded;
+				math = loaded;
 			} else {
 				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Błędne użycie systemu", null));
 				// if (!context.isPostback()) { // possible redirect
@@ -110,6 +127,17 @@ public class mathBB implements Serializable {
 			return PAGE_STAY_AT_THE_SAME;
 		}
 		return PAGE_STAY_AT_THE_SAME;
+	}
+	
+	public String deleteMath(Math math){
+		mathDAO.remove(math);
+		return PAGE_STAY;
+	}
+	
+	public String showOneQuiz() {
+		math = math.get;
+		mathDAO.getList(math);
+		return PAGE_QUIZ;
 	}
 	
 

@@ -15,20 +15,22 @@
   
 </center>
 
+
+
 </p:panel>
 
 
     <h:form>
    
     
-     <p:dataTable var="section" value="#{sectionBB.getList()}" paginator="true" rows="5"
+     <p:dataTable var="s" value="#{sectionBB.getList()}" paginator="true" rows="5"
                      paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                      rowsPerPageTemplate="5,10">
             
             <div class="p-col-12 p-md-3">
             <p:column headerText="">
-                <h:outputText id="name" value="#{section.name}"/>
-                <p:tooltip for="name" value="#{section.description}" position="bottom"/>
+                <h:outputText id="name" value="#{s.name}"/>
+                <p:tooltip for="name" value="#{s.description}" position="bottom"/>
             </p:column>
              </div>
             <p:column headerText="" >
