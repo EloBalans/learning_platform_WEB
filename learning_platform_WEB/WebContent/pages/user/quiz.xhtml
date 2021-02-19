@@ -20,8 +20,8 @@
   
 </center>
  <p:button outcome="/pages/user/testList" value="Cofnij">
-					
-					</p:button>
+	<f:param name="s" value="#{mathBB.section.sectionId}" />	
+</p:button>
 
 					
 
@@ -31,7 +31,7 @@
     <h:form>
     
     
-    <p:dataTable var="m" value="#{mathBB.getQuiz()}" >
+    <p:dataTable var="m" value="#{mathBB.Quiz()}" >
             
             
             <p:column headerText="" >

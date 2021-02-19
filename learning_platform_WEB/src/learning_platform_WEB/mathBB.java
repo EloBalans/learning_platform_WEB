@@ -76,16 +76,18 @@ public class mathBB implements Serializable {
 	
 	public List<Math> getQuiz(){
 		List<Math> list = null;
-		Map<String,Object> searchParams = new HashMap<String, Object>();
+		section = sectionDAO.find(section.getSectionId());
 		
-		if (mathId != null && mathId.length() > 0){
-			searchParams.put("mathId", mathId);
-		}
 		
-		//2. Get list
-		list = mathDAO.getList(searchParams);
+		list = mathDAO.getList(section);
 		
 		return list;
+		
+	}
+	
+	public Math Quiz(){
+		math = mathDAO.find(math.getMathId());
+		return math;
 		
 	}
 	
@@ -134,11 +136,6 @@ public class mathBB implements Serializable {
 		return PAGE_STAY;
 	}
 	
-	public String showOneQuiz() {
-		math = math.get;
-		mathDAO.getList(math);
-		return PAGE_QUIZ;
-	}
 	
 
 }
