@@ -9,8 +9,11 @@
 <ui:composition template="/templates/second-template.xhtml">
 
 <f:metadata>
-	<f:viewParam name="m" value="#{mathBB.math.mathId}"
+	<f:viewParam name="m" value="#{mathQuizBB.math.mathId}"
 		converterMessage="Error"/>
+	<f:viewParam name="s" value="#{mathQuizBB.section.sectionId}"
+		converterMessage="Error"/>
+		<f:event type="preRenderView" listener="#{mathQuizBB.onLoad()}" />
 </f:metadata>
 
 	<ui:define name="content">
@@ -20,47 +23,42 @@
   
 </center>
  <p:button outcome="/pages/user/testList" value="Cofnij">
-	<f:param name="s" value="#{mathBB.section.sectionId}" />	
+	<f:param name="s" value="#{mathQuizBB.section.sectionId}" />
 </p:button>
 
-					
 
 </p:panel>
 
-
     <h:form>
+   
+ 
+           	
+       	<p:panelGrid columns="2"  layout="grid" styleClass="showcase-text-align-center">
+       	 <f:facet name="header">
+            	<h2><h:outputText value="#{mathQuizBB.math.content}" style="color: white" /></h2>
+        </f:facet>
     
     
-    <p:dataTable var="m" value="#{mathBB.Quiz()}" >
+    	
+    	<p:selectOneRadio unselectable="true"  value="#{mathQuizBB.answer}">
+            <f:selectItem itemLabel="#{mathQuizBB.math.answer_A}" itemValue="#{mathQuizBB.math.answer_A}"/>
+            <f:selectItem itemLabel="#{mathQuizBB.math.answer_B}" itemValue="#{mathQuizBB.math.answer_B}"/>
+            <f:selectItem itemLabel="#{mathQuizBB.math.answer_C}" itemValue="#{mathQuizBB.math.answer_C}"/>
+            <f:selectItem itemLabel="#{mathQuizBB.math.answer_D}" itemValue="#{mathQuizBB.math.answer_D}"/>
+        </p:selectOneRadio>
+    			
+     
+			</p:panelGrid>
+    	<center>      
+            <p:commandButton value="Wybierz"
+				style="margin: 1em;" update="@form" action="#{mathQuizBB.checkAnswer()}"/>
+        </center>
+        
+        <center>
+         <h:outputText value="#{mathQuizBB.clientAnswer}" style="color: white" />
+         </center>
             
-            
-            <p:column headerText="" >
-            <center>
-            <h:outputText id="Content" value="#{m.mathId}"/>
-					</center>
-                
-            </p:column>
-               
-                
-            <p:column headerText="" >
-            <center>
-            <p:button outcome="/pages/user/testList" value="Wybierz">
-					<f:param name="m" value="#{m.mathId}" />
-					</p:button>
-					</center>
-                
-            </p:column>
-           
-            <p:column>
-             <center>
-                    <p:commandButton value="Usuń"
-					action="#{mathBB.deleteMath(m)}" update="@form" />
-					</center>
-            </p:column>
-            
-            
-            
-        </p:dataTable>
+      
  	</h:form>
     
 	</ui:define>

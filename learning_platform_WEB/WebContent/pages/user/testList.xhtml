@@ -36,7 +36,7 @@
                      rowsPerPageTemplate="5,10">
             
             
-            <p:column headerText="" >
+            <p:column >
             <center>
             <h:outputText id="Content" value="#{m.mathId}"/>
 					</center>
@@ -44,16 +44,17 @@
             </p:column>
                
                 
-            <p:column headerText="" >
+            <p:column>
             <center>
             <p:button outcome="/pages/user/quiz" value="Wybierz">
+            		<f:param name="s" value="#{mathBB.section.sectionId}" />
 					<f:param name="m" value="#{m.mathId}" />
 					</p:button>
 					</center>
                 
             </p:column>
            
-            <p:column>
+            <p:column  rendered="#{remoteClient.details.role eq 'admin'}">
              <center>
                     <p:commandButton value="Usuń"
 					action="#{mathBB.deleteMath(m)}" update="@form" />

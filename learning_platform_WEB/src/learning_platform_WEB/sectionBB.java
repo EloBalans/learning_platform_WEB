@@ -12,9 +12,11 @@ import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.simplesecurity.RemoteClient;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 
 import com.jsf.entities.Person;
 
@@ -33,6 +35,10 @@ public class sectionBB implements Serializable {
 	private static final String PAGE_STAY_AT_THE_SAME = null;
 
 	private String name;
+	private Section section = new Section();
+	private Section loaded = null;
+	private User user = new User();
+	private RemoteClient<User> userTemp = new RemoteClient<User>();
 
 	@Inject
 	FacesContext context;
@@ -42,6 +48,7 @@ public class sectionBB implements Serializable {
 	
 	@EJB
 	SectionDAO sectionDAO;
+	UserDAO userDAO;
 	
 	public String getName() {
 		return name;
@@ -55,6 +62,9 @@ public class sectionBB implements Serializable {
 		return sectionDAO.getFullList();
 	}
 
+	public RemoteClient<User> getUserTemp() {
+		return userTemp;
+	}
 	
 	public List<Section> getList(){
 		List<Section> list = null;
@@ -70,6 +80,18 @@ public class sectionBB implements Serializable {
 		list = sectionDAO.getList(searchParams);
 		
 		return list;
+	}
+	
+	public void onLoad() throws IOException{
+		
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+		userTemp = (RemoteClient<User>)session.getAttribute("remoteClient");
+		if (userTemp!=null) {
+			List<User> users = userDAO.getUser(userTemp.getDetails().getUsername(), userTemp.getDetails().getPassword());
+			user = users.get(0);
+			
+		}
 	}
 
 	public String newSection(){

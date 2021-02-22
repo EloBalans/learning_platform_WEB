@@ -57,7 +57,7 @@
 	<center>
 		<p:commandButton value="Logout" action="#{loginBB.doLogout()}"/>
 		
-		<p:button outcome="/pages/admin/addSection"  value="Dodaj sekcję" >
+		<p:button outcome="/pages/admin/addSection"  value="Dodaj sekcję" rendered="#{remoteClient.details.role eq 'admin'}" >
    		</p:button>
 	</center>
 	
